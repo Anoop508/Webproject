@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
 var compiler = require("compilex");
+const PORT = process.env.PORT || 5000
 
 
 var app = express();
@@ -62,7 +63,8 @@ app.get("/fullStat", function (req, res) {
 });
 
 
-app.listen(8080);
+app.listen(process.env.PORT || PORT, () => {
+	console.log(`Server listening on port ${PORT}`);});
 
 
 compiler.flush(function () {
